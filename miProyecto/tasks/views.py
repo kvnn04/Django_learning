@@ -4,5 +4,6 @@ from .models import Task
 
 def task_list(request):
     tasks = Task.objects.all()
+    tasksDict = list(Task.objects.values())
     print("Tareas en la base de datos:", tasks)
-    return render(request, 'tasks/task_list.html', {'tasks': tasks})
+    return render(request, 'tasks/task_list.html', {'tasks': tasks, 'tasksDict': tasksDict})
